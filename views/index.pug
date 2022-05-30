@@ -1,0 +1,38 @@
+html
+
+    body 
+        center 
+        h1 NBA API 
+        p A list of the available routes for this API and their function
+        hr 
+        h2 GET '/teams'
+        p This GET route will return a list of all available teams
+        p Route: http;//localhost:1337/teams
+        p Expected Output: id: 1 team: 'Boston Celtics' location: 'Boston' conference: 'East'
+
+        h2 GET '/teams/:id'
+        p This GET route will return a team by id
+        p Route: http;//localhost:1337/teams/:id
+        p Expected Output: id: 1 team: 'Boston Celtics' location: 'Boston' conference: 'East'
+
+        h2 GET '/teams/:location'
+        p This GET route will return a team by location
+        p Route: http;//localhost:1337/teams/:location
+        p Expected Output: id: 1 team: 'Boston Celtics' location: 'Boston' conference: 'East'
+
+        h2  GET '/teams/:conference'
+        p This GET route will return a team by conference
+        p Route: http;//localhost:1337/teams/:conference
+        p Expected Output: id: 1 team: 'Boston Celtics' location: 'Boston' conference: 'East'
+
+        h2 POST '/teams/:createTeam'
+        p This Post will allow you to add a team 
+        p Route: http;//localhost:1337/teams/:createTeam
+        p Expected Output: id:  team: '' location: '' conference: ''
+
+        h2 POST '/teams/:deleteTeam'
+        p This Post will allow you to delete a team 
+        p Route: http;//localhost:1337/teams/:deleteTeam
+        p team is deleted
+        
+
