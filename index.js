@@ -1,18 +1,27 @@
+/* eslint-disable max-len */
 const express = require('express')
-
+const bodyParser = require('body-parser')
+const path = require('path')
+const cors = require('cors')
+const { getAllTeams, getTeamById, getTeamsByLocation, saveNewTeams, getTeamsByConference } = require('./controllers/teams')
 
 const app = express()
 
-app.set('view engine', 'pug')
+app.use(cors())
 
-app.get('/', (request, response) => {
-  response.render('index',)
-})
+app.get('/api/teams', getAllTeams)
 
-app.all('*', (request, response) => {
-  return response.sendStatus(404)
-})
+app.get('/api/teams/:Id', getTeamById)
+
+app.get('/api/teams/Location/:Location', getTeamsByLocation)
+
+app.get('/api/teams/Conference/:Conference', getTeamsByConference)
+
+app.post('/', bodyParser.json(), saveNewTeams)
+
+app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'client/build', 'index.html')))
 
 app.listen(1337, () => {
-  console.log('Listening on http://localhost:1337..') // eslint-disable-line no-console
+  // eslint-disable-next-line no-console
+  console.log('Listening on port 1337...')
 })
